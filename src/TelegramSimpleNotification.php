@@ -6,7 +6,7 @@ namespace kirillreutski\TelegramSimpleNotifier;
 class TelegramSimpleNotification {
     public static string $botHash; 
     public static string $chatId; 
-    public static function sendMessage($message, $botHash = null, $chatId = null){
+    public static function sendMessage(string $message, string $botHash = null, string $chatId = null){
 
         if ($botHash == null) $botHash = static::$botHash;
         if ($chatId == null) $chatId = static::$chatId;
@@ -23,6 +23,11 @@ class TelegramSimpleNotification {
             'chatId' => $chatId, 
             'message' => $message, 
         ]);
+    }
+
+    public static function setWebhook(string $botHash, string $webhookUrl){
+        //https://api.telegram.org/bot{my_bot_token}/setWebhook?url={url_to_send_updates_to}
+        return static::sendGetRequest("https://api.telegram.org/bot" . $botHash . "/setWebhook?url=" . $webhookUrl);
     }
 
     public static function sendGetRequest($url, $data = []){
