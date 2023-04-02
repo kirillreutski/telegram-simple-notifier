@@ -1,0 +1,14 @@
+{
+    "name": "kirillreutski/telegram-simple-notifier",
+    "autoload": {
+        "psr-4": {
+            "kirillreutski\\TelegramSimpleNotifier\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kirillreutski"
+        }
+    ],
+    "require": {}
+}
